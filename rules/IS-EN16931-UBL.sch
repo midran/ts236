@@ -26,70 +26,75 @@
 
   <!-- ICELAND -->
 	<pattern>
-		<rule context="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'IS']">
-			<assert 
-				id="IS-R-001"
-				test=""
-				flag="warning">Ef reikningur inniheldur virðisaukaskattsnúmer seljanda (BT-31) og það byrjar á IS en annars ef landakóti seljanda (BT-40) er IS þá ætti gerð reiknings (BT-3) að vera sölureikningur (380) eða kreditreikningur (381), sjá grein 5.5.</assert>
 
+		<rule context="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'IS']">
+
+<!-- status verify -->
+		<assert 
+				id="IS-R-001"
+				test="string-length(normalize-space(cbc:InvoiceTypeCode)) = '380 381'"
+				flag="warning">Ef seljandi er íslenskur 
+					þá ætti gerð reiknings (BT-3) að vera sölureikningur (380) eða kreditreikningur (381).</assert>
+<!-- status draft -->
 			<assert 
 				id="IS-R-002"
-				test=""
-				flag="fatal">Ef reikningur inniheldur virðisaukaskattsnúmer seljanda (BT-31) og það byrjar á IS en annars ef landakóti seljanda (BT-40) er IS þá skal reikningur innihalda íslenska kennitölu seljanda (BT-30).</assert>				
+				test="exists(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID) and cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID/@schemeID = '0196'"
+				flag="fatal">Ef seljandi er íslenskur þá skal reikningur innihalda íslenska kennitölu seljanda (BT-30).</assert>
 
+<!-- status draft -->
 			<assert 
 				id="IS-R-003"
-				test=""
-				flag="fatal">Ef reikningur inniheldur virðisaukaskattsnúmer seljanda (BT-31) og það byrjar á IS en annars ef landakóti seljanda (BT-40) er IS þá skulu schemeID eigindi kennitölu seljanda (BT-30-1) vera 0196 .</assert>
+				test="exists(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName) and exists(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone)"
+				flag="fatal">Ef seljandi er íslenskur þá skal heimilisfang seljanda innihalda götuheiti og póstnúmer (BT-35 og BT-38).</assert>
 
-			<assert 
-				id="IS-R-004"
-				test=""
-				flag="fatal">Ef reikningur inniheldur virðisaukaskattsnúmer seljanda (BT-31) og það byrjar á IS en annars ef landakóti seljanda (BT-40) er IS þá skal heimilisfang seljanda innihalda götuheiti og póstnúmer (BT-35 og BT-38).</assert>
-
-			<assert 
-				id="IS-R-005"
-				test=""
-				flag="fatal">Ef reikningur inniheldur virðisaukaskattsnúmer seljanda (BT-31) og það byrjar á IS en annars ef landakóti seljanda (BT-40) er IS þá skal reikningurinn innihalda íslenska kennitölu kaupanda (BT-47) þegar landakóti kaupanda (BT-55) er IS.</assert>
+<!-- status draft -->				
 			<assert 
 				id="IS-R-006"
-				test=""
-				flag="fatal">Ef reikningur inniheldur virðisaukaskattsnúmer seljanda (BT-31) og það byrjar á IS en annars ef landakóti seljanda (BT-40) er IS þá skulu schemeID eigindi kennitölu kaupanda vera 0196 (BT-47-1) þegar landakóti kaupanda (BT-55) er IS.</assert>
+				test="exists(cac:PaymentMeans[cbc:PaymentMeansCode = &apos;9&apos;]/cac:PayeeFinancialAccount/cbc:ID) 
+					  and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = &apos;9&apos;]/cac:PayeeFinancialAccount/cbc:ID)) = 12"
+				flag="fatal">Ef seljandi er íslenskur og greiðslumáti (BT-81) er millifærsla (kóti 9)
+					þá skal koma fram 12 stafa reikningnúmer (BT-84)</assert>
 
+<!-- status draft -->
 			<assert 
 				id="IS-R-007"
-				test=""
-				flag="fatal">Ef reikningur inniheldur virðisaukaskattsnúmer seljanda (BT-31) og það byrjar á IS en annars ef landakóti seljanda (BT-40) er IS þá skal heimilisfang kaupanda innihalda götuheiti og póstnúmer (BT-50 og BT-53) þegar landakóti kaupanda (BT-55) er IS.</assert>
+				test="exists(cac:PaymentMeans[cbc:PaymentMeansCode = &apos;42&apos;]/cac:PayeeFinancialAccount/cbc:ID) 
+					  and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = &apos;42&apos;]/cac:PayeeFinancialAccount/cbc:ID)) = 12"
+				flag="fatal">Ef seljandi er íslenskur og greiðslumáti (BT-81) er millifærsla (kóti 42) þá skal koma fram 12 stafa reikningnúmer (BT-84)</assert>
 
+		</rule>
+
+		<rule context="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'IS'] and cac:AdditionalDocumentReference/cbc:DocumentTypeCode = '71'">
+<!-- status draft -->
 			<assert 
 				id="IS-R-008"
-				test=""
-				flag="fatal">Ef reikningur inniheldur virðisaukaskattsnúmer seljanda (BT-31) og það byrjar á IS en annars ef landakóti seljanda (BT-40) er IS þá skal Kröfustrengur vera 12 tölustafir þegar greiðslumáti er millifærsla.</assert>
-
+				test="string-length(cac:AdditionalDocumentReference/cbc:ID) = 10 and (string(.) castable as xs:date)"
+				flag="fatal">Ef seljandi er íslenskur þá skal eindagi (BT-122, tegundarkóti 71) vera á forminu YYYY-MM-DD.</assert>
+<!-- status draft -->
 			<assert 
 				id="IS-R-009"
-				test=""
-				flag="fatal">Ef reikningur inniheldur virðisaukaskattsnúmer seljanda (BT-31) og það byrjar á IS en annars ef landakóti seljanda (BT-40) er IS þá skal koma fram kröfunúmer (BT-84) þegar greiðslumáti (BT-81) er krafa (kóti 9).</assert>
-
+				test="exist(cbc:DueDate)"
+				flag="fatal">Ef seljandi er íslenskur þá skal reikningur sem inniheldur eindaga (BT-122, DocumentTypeCode = 71) einnig hafa gjalddaga (BT-9).</assert>
+<!-- status draft -->
 			<assert 
 				id="IS-R-010"
-				test=""
-				flag="fatal">Ef reikningur inniheldur virðisaukaskattsnúmer seljanda (BT-31) og það byrjar á IS en annars ef landakóti seljanda (BT-40) er IS þá skal reikningnúmer (BT-84)  vera 12 tölustafir þegar greiðslumáti (BT-81) er millifærsla (kóti 42).</assert>
+				test="(cbc:DueDate) &lt;= (cac:AdditionalDocumentReference/cbc:ID)"
+				flag="fatal">Ef seljandi er íslenskur þá skal eindagi (BT-122, DocumentTypeCode = 71) skal vera sami eða síðar en gjalddagi (BT-9) ef eindagi er til staðar.</assert>
+					
+		</rule>
 
+		<rule context="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'IS'] and cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IS']">
+<!-- status draft -->
 			<assert 
-				id="IS-R-011"
-				test=""
-				flag="fatal">Ef reikningur inniheldur virðisaukaskattsnúmer seljanda (BT-31) og það byrjar á IS en annars ef landakóti seljanda (BT-40) er IS þá skal þá skal tilvísun (BT-122) vera á forminu YYYY-MM-DD þegar tegund skjals (BT-122) er eindagi (kóti 71).</assert>
+				id="IS-R-004"
+				test="exists(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID) and cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID/@schemeID = '0196'"
+				flag="fatal">Ef seljandi og kaupandi eru íslenskir þá skal reikningurinn innihalda íslenska kennitölu kaupanda (BT-47).</assert>
 
+<!-- status draft -->
 			<assert 
-				id="IS-R-012"
-				test=""
-				flag="fatal">Ef reikningur inniheldur virðisaukaskattsnúmer seljanda (BT-31) og það byrjar á IS en annars ef landakóti seljanda (BT-40) er IS þá skal reikningur sem inniheldur eindaga (BT-122, DocumentTypeCode = 71) einnig hafa gjalddaga (BT-9).</assert>
-
-			<assert 
-				id="IS-R-013"
-				test=""
-				flag="fatal">Ef reikningur inniheldur virðisaukaskattsnúmer seljanda (BT-31) og það byrjar á IS en annars ef landakóti seljanda (BT-40) er IS þá skal eindagi (BT-122, DocumentTypeCode = 71) skal vera sami eða síðar en gjalddagi (BT-9) ef eindagi er til staðar.</assert>
+				id="IS-R-005"
+				test="exists(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName) and exists(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone)"
+				flag="fatal">Ef seljandi og kaupandi eru íslenskir þá skal heimilisfang kaupanda innihalda götuheiti og póstnúmer (BT-50 og BT-53)</assert>
 
 		</rule>
 	</pattern>
