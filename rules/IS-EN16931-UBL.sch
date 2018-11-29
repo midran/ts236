@@ -29,7 +29,7 @@
 
 		<rule context="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'IS']">
 
-<!-- status verify -->
+<!-- status draft -->
 		<assert 
 				id="IS-R-001"
 				test="( ( not(contains(normalize-space(.),' ')) and contains( ' 380 381 ',concat(' ',normalize-space(.),' ') ) ) )"
