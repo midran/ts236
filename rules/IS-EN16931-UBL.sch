@@ -77,7 +77,7 @@
 			<assert 
 				id="IS-R-010"
 				test="(cbc:DueDate) &lt;= (cac:AdditionalDocumentReference/cbc:ID)"
-				flag="fatal">If seller is icelandic and invoice contains reference type 71 the id date must be same or later than due date   — Ef seljandi er íslenskur þá skal eindagi (BT-122, DocumentTypeCode = 71) skal vera sami eða síðar en gjalddagi (BT-9) ef eindagi er til staðar.</assert>
+				flag="fatal">If seller is icelandic and invoice contains reference type 71 the id date must be same or later than due date — Ef seljandi er íslenskur þá skal eindagi (BT-122, DocumentTypeCode = 71) skal vera sami eða síðar en gjalddagi (BT-9) ef eindagi er til staðar.</assert>
 				
 		</rule>
 
