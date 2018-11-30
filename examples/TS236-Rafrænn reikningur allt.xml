@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2" xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!-- 
+Title: Full EN 16931 invoice example using UBL 2.1
+Description: This example of an EN 16931 invoice is a full but not valid example in UBL 2.1. As such makes use of all business terms defined in the EN 16931 but it's not valid because according to business rules some elements are mutually exclusive.
+Created by: Georg Birgisson, Midran Ltd.
+Date: 2018-11-31
+Compliance: Not valid
+-->
+
 	<cbc:UBLVersionID>2.1</cbc:UBLVersionID>
 	<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
 	<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
@@ -12,7 +21,7 @@
 	<cbc:DocumentCurrencyCode>ISK</cbc:DocumentCurrencyCode>
 	<cbc:AccountingCost>102035</cbc:AccountingCost>
 	<cac:InvoicePeriod>
-		<cbc:DescriptionCode>35</cbc:DescriptionCode>
+		<cbc:DescriptionCode>35</cbc:DescriptionCode> <!-- BT-8 -->
 		<cbc:StartDate>2010-06-01</cbc:StartDate>
 		<cbc:EndDate>2010-06-31</cbc:EndDate>
 	</cac:InvoicePeriod>

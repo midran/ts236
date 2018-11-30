@@ -9,12 +9,12 @@ Date: 2018-11-31
 Compliance: Valid
 -->
 
-	<cbc:UBLVersionID>2.1</cbc:UBLVersionID>  <!-- BT-x -->
-	<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID> <!-- BT-x -->
-	<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID> <!-- BT-x -->
+	<cbc:UBLVersionID>2.1</cbc:UBLVersionID>
+	<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID> <!-- BT-24 -->
+	<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID> <!-- BT-225 -->
 	<cbc:ID>TOSL108</cbc:ID> <!-- BT-1 -->
 	<cbc:IssueDate>2018-07-01</cbc:IssueDate> <!-- BT-2 -->
-	<cbc:DueDate>2018-07-31</cbc:DueDate> <!-- BT-x -->
+	<cbc:DueDate>2018-07-31</cbc:DueDate> <!-- BT-9 -->
 	<cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode> <!-- BT-3 -->
 	<cbc:Note>Pantað á vörusýningunni.</cbc:Note> <!-- BT-22 -->
 	<cbc:TaxPointDate>2018-07-01</cbc:TaxPointDate> <!-- BT-7 -->
@@ -51,13 +51,6 @@ Compliance: Valid
 		<cbc:ID>987</cbc:ID>  <!-- BT-16 -->
 	</cac:DespatchDocumentReference>
 	<cac:AdditionalDocumentReference>
-		<cbc:ID>doc1</cbc:ID>  <!-- BT-122 -->
-		<cbc:DocumentDescription>Teikning</cbc:DocumentDescription>  <!-- BT-123 -->
-		<cac:Attachment>
-			<cbc:EmbeddedDocumentBinaryObject filename="skjal.pdf" mimeCode="application/pdf">UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</cbc:EmbeddedDocumentBinaryObject> <!-- BT-125, BT-125-1, BT-125-2 -->
-		</cac:Attachment>
-	</cac:AdditionalDocumentReference>
-	<cac:AdditionalDocumentReference>
 		<cbc:ID>doc2</cbc:ID>  <!-- BT-122 -->
 		<cbc:DocumentDescription>Notkunaryfirlit</cbc:DocumentDescription>  <!-- BT-123 -->
 		<cac:Attachment>
@@ -69,6 +62,10 @@ Compliance: Valid
 	<cac:AdditionalDocumentReference>
 		<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
 		<cbc:ID schemeID="ABZ">951</cbc:ID>
+	</cac:AdditionalDocumentReference>
+	<cac:AdditionalDocumentReference>
+		<cbc:DocumentTypeCode>71</cbc:DocumentTypeCode>   <!-- 71 = Eindagi -->
+		<cbc:ID>2018-08-31</cbc:ID>  <!-- BT-122 -->
 	</cac:AdditionalDocumentReference>
 	<cac:AccountingSupplierParty>
 		<cac:Party>
@@ -218,341 +215,142 @@ Compliance: Valid
 		</cac:DeliveryLocation>
 	</cac:Delivery>
 	<cac:PaymentMeans>
-		<cbc:PaymentMeansCode>49</cbc:PaymentMeansCode> <!-- BT-72 -->
-		<cbc:PaymentID>gr12345</cbc:PaymentID> <!-- BT-72 -->
+		<cbc:PaymentMeansCode name="Millifærsla">42</cbc:PaymentMeansCode> <!-- BT-82, BT-81 -->
+		<cbc:PaymentID>gr12345</cbc:PaymentID> <!-- BT-83 -->
 		<cac:PayeeFinancialAccount>
-			<cbc:ID>123456</cbc:ID> <!-- BT-72 -->
-			<cac:FinancialInstitutionBranch>
-				<cbc:ID>0001</cbc:ID> <!-- BT-72 -->
-			</cac:FinancialInstitutionBranch>
+			<cbc:ID>000166000001</cbc:ID> <!-- BT-84 -->
 		</cac:PayeeFinancialAccount>
 	</cac:PaymentMeans>
-	<cac:PaymentMandate>
-      <cbc:ID>123456</cbc:ID>
-      <cbc:PayerFinancialAccount>
-         <cbc:ID>654321654</cbc:ID>
-      </cbc:PayerFinancialAccount>
-   </cac:PaymentMandate>
 	<cac:PaymentTerms>
-		<cbc:Note>Vanskilagjald leggst við upphæðina eftir eindaga auk dráttarvaxta sem reiknast frá gjalddaga.</cbc:Note>
-		<cac:SettlementPeriod>
-			<cbc:StartDate>2010-09-30</cbc:StartDate>
-		</cac:SettlementPeriod>
+		<cbc:Note>Vanskilagjald leggst við upphæðina eftir eindaga auk dráttarvaxta sem reiknast frá gjalddaga.</cbc:Note> <!-- BT-20 -->
 	</cac:PaymentTerms>
 	<cac:AllowanceCharge>
-		<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
-		<cbc:AllowanceChargeReason>Akstur/Flutningur</cbc:AllowanceChargeReason>
-		<cbc:Amount currencyID="ISK">100.00</cbc:Amount>
+		<cbc:ChargeIndicator>true</cbc:ChargeIndicator> <!-- UBL qualifier -->
+		<cbc:AllowanceChargeReason>Flutningskostnaður</cbc:AllowanceChargeReason> <!-- BT-97, BT-104 -->
+		<cbc:AllowanceChargeReasonCode>123</cbc:AllowanceChargeReasonCode> <!-- BT-98, BT-105 -->
+		<cbc:Amount currencyID="ISK">37000.00</cbc:Amount> <!-- BT-92, BT-99 -->
+		<cbc:MultiplierFactorNumeric>80</cbc:MultiplierFactorNumeric> <!-- BT-94, BT-101 -->
+		<cbc:BaseAmount>46250</cbc:BaseAmount> <!-- BT-93, BT-100 -->
 		<cac:TaxCategory>
-			<cbc:ID schemeID="UN/ECE 5305" schemeAgencyID="6">S</cbc:ID>
+			<cbc:ID>S</cbc:ID> <!-- BT-95, BT-102 -->
+				<cbc:Percent>10</cbc:Percent> <!-- BT-96, BT-103  -->
 			<cac:TaxScheme>
-				<cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">VAT</cbc:ID>
-			</cac:TaxScheme>
-		</cac:TaxCategory>
-	</cac:AllowanceCharge>
-	<cac:AllowanceCharge>
-		<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-		<cbc:AllowanceChargeReason>Afsláttur í haus</cbc:AllowanceChargeReason>
-		<cbc:AllowanceChargeReasonCode>123</cbc:AllowanceChargeReasonCode>		
-		<cbc:Amount currencyID="ISK">100.00</cbc:Amount>
-		<cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
-		<cbc:BaseAmount>1000</cbc:BaseAmount>
-		<cac:TaxCategory>
-			<cbc:ID schemeID="UN/ECE 5305" schemeAgencyID="6">S</cbc:ID>
-			<cac:TaxScheme>
-				<cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">VAT</cbc:ID>
+				<cbc:ID>VAT</cbc:ID>
 			</cac:TaxScheme>
 		</cac:TaxCategory>
 	</cac:AllowanceCharge>
 	<cac:TaxTotal>
-		<cbc:TaxAmount currencyID="EUR">95946.53</cbc:TaxAmount>
+		<cbc:TaxAmount currencyID="EUR">89343.37</cbc:TaxAmount> <!-- BT-110 -->
 		<cac:TaxSubtotal>
-			<cbc:TaxableAmount currencyID="ISK">375927.39</cbc:TaxableAmount>
-			<cbc:TaxAmount currencyID="ISK">95861.48</cbc:TaxAmount>
+			<cbc:TaxableAmount currencyID="ISK">356847.39</cbc:TaxableAmount> <!-- BT-116 -->
+			<cbc:TaxAmount currencyID="ISK">85643.37</cbc:TaxAmount> <!-- BT-117 -->
 			<cac:TaxCategory>
-				<cbc:ID schemeID="UN/ECE 5305" schemeAgencyID="6">S</cbc:ID>
-				<cbc:Percent>25.5</cbc:Percent>
+				<cbc:ID>S</cbc:ID> <!-- BT-118 -->
+				<cbc:Percent>24</cbc:Percent> <!-- BT-119 -->
 				<cac:TaxScheme>
-					<cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">VAT</cbc:ID>
+					<cbc:ID>VAT</cbc:ID> <!-- qualifier -->
 				</cac:TaxScheme>
 			</cac:TaxCategory>
 		</cac:TaxSubtotal>
 		<cac:TaxSubtotal>
-			<cbc:TaxableAmount currencyID="ISK">1214.95</cbc:TaxableAmount>
-			<cbc:TaxAmount currencyID="ISK">85.05</cbc:TaxAmount>
+			<cbc:TaxableAmount currencyID="ISK">37000.00</cbc:TaxableAmount> <!-- BT-116 -->
+			<cbc:TaxAmount currencyID="ISK">3700.00</cbc:TaxAmount> <!-- BT-117 -->
 			<cac:TaxCategory>
-				<cbc:ID schemeID="UN/ECE 5305" schemeAgencyID="6">AA</cbc:ID>
-				<cbc:Percent>7</cbc:Percent>
+				<cbc:ID>S</cbc:ID> <!-- BT-118 -->
+				<cbc:Percent>10</cbc:Percent> <!-- BT-119 -->
 				<cac:TaxScheme>
-					<cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">VAT</cbc:ID>
+					<cbc:ID>VAT</cbc:ID> <!-- qualifier -->
 				</cac:TaxScheme>
 			</cac:TaxCategory>
-		</cac:TaxSubtotal>
-		<cac:TaxSubtotal>
-			<cbc:TaxableAmount currencyID="ISK">-50000.00</cbc:TaxableAmount>
-			<cbc:TaxAmount currencyID="ISK">0.00</cbc:TaxAmount>
-			<cac:TaxCategory>
-				<cbc:ID schemeID="UN/ECE 5305" schemeAgencyID="6">E</cbc:ID>
-				<cbc:Percent>0</cbc:Percent>
-				<cbc:TaxExemptionReasonCode listID="CWA 15577" listAgencyID="ZZZ"> AAH Margin Scheme</cbc:TaxExemptionReasonCode>
-				<cbc:TaxExemptionReason>Notuð vara</cbc:TaxExemptionReason>
-				<cac:TaxScheme>
-					<cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">VAT</cbc:ID>
-				</cac:TaxScheme>
-			</cac:TaxCategory>
-		</cac:TaxSubtotal>
+		</cac:TaxSubtotal>		
 	</cac:TaxTotal>
 	<cac:TaxTotal>
-		<cbc:TaxAmount currencyID="ISK">95946.53</cbc:TaxAmount>
+		<cbc:TaxAmount currencyID="EUR">86843.37</cbc:TaxAmount>
 		<cac:TaxSubtotal>
-			<cbc:TaxableAmount currencyID="ISK">375927.39</cbc:TaxableAmount>
-			<cbc:TaxAmount currencyID="ISK">95861.48</cbc:TaxAmount>
+			<cbc:TaxableAmount currencyID="ISK">361747,39</cbc:TaxableAmount>
+			<cbc:TaxAmount currencyID="ISK">86843.37</cbc:TaxAmount>
 			<cac:TaxCategory>
-				<cbc:ID schemeID="UN/ECE 5305" schemeAgencyID="6">S</cbc:ID>
-				<cbc:Percent>25.5</cbc:Percent>
+				<cbc:ID>S</cbc:ID>
+				<cbc:Percent>24</cbc:Percent>
 				<cac:TaxScheme>
-					<cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">VAT</cbc:ID>
-				</cac:TaxScheme>
-			</cac:TaxCategory>
-		</cac:TaxSubtotal>
-		<cac:TaxSubtotal>
-			<cbc:TaxableAmount currencyID="ISK">1214.95</cbc:TaxableAmount>
-			<cbc:TaxAmount currencyID="ISK">85.05</cbc:TaxAmount>
-			<cac:TaxCategory>
-				<cbc:ID schemeID="UN/ECE 5305" schemeAgencyID="6">AA</cbc:ID>
-				<cbc:Percent>7</cbc:Percent>
-				<cac:TaxScheme>
-					<cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">VAT</cbc:ID>
-				</cac:TaxScheme>
-			</cac:TaxCategory>
-		</cac:TaxSubtotal>
-		<cac:TaxSubtotal>
-			<cbc:TaxableAmount currencyID="ISK">-50000.00</cbc:TaxableAmount>
-			<cbc:TaxAmount currencyID="ISK">0.00</cbc:TaxAmount>
-			<cac:TaxCategory>
-				<cbc:ID schemeID="UN/ECE 5305" schemeAgencyID="6">E</cbc:ID>
-				<cbc:Percent>0</cbc:Percent>
-				<cbc:TaxExemptionReasonCode listID="CWA 15577" listAgencyID="ZZZ"> AAH Margin Scheme</cbc:TaxExemptionReasonCode>
-				<cbc:TaxExemptionReason>Notuð vara</cbc:TaxExemptionReason>
-				<cac:TaxScheme>
-					<cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">VAT</cbc:ID>
+					<cbc:ID>VAT</cbc:ID>
 				</cac:TaxScheme>
 			</cac:TaxCategory>
 		</cac:TaxSubtotal>
 	</cac:TaxTotal>
 	<cac:LegalMonetaryTotal>
-		<cbc:LineExtensionAmount currencyID="ISK">327142.34</cbc:LineExtensionAmount>
-		<cbc:TaxExclusiveAmount currencyID="ISK">327142.34</cbc:TaxExclusiveAmount>
-		<cbc:TaxInclusiveAmount currencyID="ISK">423089.00</cbc:TaxInclusiveAmount>
-		<cbc:AllowanceTotalAmount currencyID="ISK">100.00</cbc:AllowanceTotalAmount>
-		<cbc:ChargeTotalAmount currencyID="ISK">100.00</cbc:ChargeTotalAmount>
-		<cbc:PrepaidAmount currencyID="ISK">100000.00</cbc:PrepaidAmount>
-		<cbc:PayableRoundingAmount currencyID="ISK">0.13</cbc:PayableRoundingAmount>
-		<cbc:PayableAmount currencyID="ISK">323089.00</cbc:PayableAmount>
+		<cbc:LineExtensionAmount currencyID="ISK">356847.39</cbc:LineExtensionAmount> <!-- BT-106 -->
+		<cbc:TaxExclusiveAmount currencyID="ISK">393847.39</cbc:TaxExclusiveAmount> <!-- BT-109 -->
+		<cbc:TaxInclusiveAmount currencyID="ISK">483190.76</cbc:TaxInclusiveAmount> <!-- BT-112 -->
+		<cbc:AllowanceTotalAmount currencyID="ISK">0.00</cbc:AllowanceTotalAmount> <!-- BT-107 -->
+		<cbc:ChargeTotalAmount currencyID="ISK">37000</cbc:ChargeTotalAmount> <!-- BT-108 -->
+		<cbc:PrepaidAmount currencyID="ISK">100000.00</cbc:PrepaidAmount> <!-- BT-116 -->
+		<cbc:PayableRoundingAmount currencyID="ISK">-0.76</cbc:PayableRoundingAmount> <!-- BT-114 -->
+		<cbc:PayableAmount currencyID="ISK">383190.00</cbc:PayableAmount> <!-- BT-115 -->
 	</cac:LegalMonetaryTotal>
 	<cac:InvoiceLine>
-		<cbc:ID>1</cbc:ID>
-		<cbc:Note>Skv. samtali staðfestist að vélinni fylgir 3ja ára verksmiðjuábyrgð.</cbc:Note>
-		<cbc:InvoicedQuantity unitCode="C62">1</cbc:InvoicedQuantity>
-		<cbc:LineExtensionAmount currencyID="ISK">360847.39</cbc:LineExtensionAmount>
-		<cbc:AccountingCost>Verkliður 654</cbc:AccountingCost>
+		<cbc:ID>1</cbc:ID> <!-- BT-126 -->
+		<cbc:Note>Skv. samtali staðfestist að vélinni fylgir 3ja ára verksmiðjuábyrgð.</cbc:Note> <!-- BT-127 -->
+		<cbc:InvoicedQuantity unitCode="H87">1</cbc:InvoicedQuantity> <!-- BT-130, BT-129 -->
+		<cbc:LineExtensionAmount currencyID="ISK">356847.39</cbc:LineExtensionAmount> <!-- BT-131 -->
+		<cbc:AccountingCost>Verkliður 654</cbc:AccountingCost> <!-- BT-133 -->
+		<cac:InvoicePeriod>
+			<cbc:StartDate>2010-06-01</cbc:StartDate> <!-- BT-134 -->
+			<cbc:EndDate>2010-06-31</cbc:EndDate> <!-- BT-135 -->
+		</cac:InvoicePeriod>
 		<cac:OrderLineReference>
-			<cbc:LineID>1</cbc:LineID>
+			<cbc:LineID>1</cbc:LineID> <!-- BT-132 -->
 		</cac:OrderLineReference>
+		<cac:DocumentReference>
+			<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode> <!-- BT-128, qualifier -->
+			<cbc:ID schemeID="ABZ">AB-123</cbc:ID> <!-- BT-128, BT-128-1 -->
+		</cac:DocumentReference>
 		<cac:AllowanceCharge>
-			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-			<cbc:AllowanceChargeReason>Rispa</cbc:AllowanceChargeReason>
-			<cbc:Amount currencyID="ISK">5000.00</cbc:Amount>
+			<cbc:ChargeIndicator>false</cbc:ChargeIndicator> <!-- qualifier -->
+			<cbc:AllowanceChargeReason>Rispa</cbc:AllowanceChargeReason> <!-- BT-139, BT-144 -->
+			<cbc:AllowanceChargeReasonCode>Rispa</cbc:AllowanceChargeReasonCode> <!-- BT-140, BT-145 -->
+			<cbc:Amount currencyID="ISK">5000.00</cbc:Amount> <!-- BT-136, BT-141 -->
+			<cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric> <!-- BT-138, BT-141 -->
+			<cbc:BaseAmount currencyID="ISK">50000.00</cbc:BaseAmount> <!-- BT-137, BT-142 -->
 		</cac:AllowanceCharge>
-		<cac:AllowanceCharge>
-			<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
-			<cbc:AllowanceChargeReason>Viðgerð á rispu</cbc:AllowanceChargeReason>
-			<cbc:Amount currencyID="ISK">4000.00</cbc:Amount>
-		</cac:AllowanceCharge>
-		<cac:TaxTotal>
-			<cbc:TaxAmount currencyID="ISK">92016.08</cbc:TaxAmount>
-		</cac:TaxTotal>
 		<cac:Item>
-			<cbc:Description>Örgjörvi: Intel Core 2 Duo SU9400 LV (1,4GHz) m. 2 kjörnum. Flýtiminni: 3MB. Gagnabraut: 800MHz. Kubbasett: Intel 965GM m. AMT. Minni: 3GB 667MHz DDR2 minni (4GB mest), dual channel (Ath. Vista 32 sér bara 3GB). Skjár: 13,3"" TFT LED breiðtjaldsskjár m. innbyggðri myndavél. Upplausn: 1440x900 punkta. Skjákort. hraðvirkt Intel GMA 4500 128MB. Diskur: 128GB SSD flash - engir hreyfanlegir hlutir og 50% meiri afköst. Mótald: Ekkert - mögulegt að fá USB mótald. Netkort: 10/1000 Ethernetkort og Bluetooth. Þráðlaust kort: Intel 802.11 a / g / n 54Mb/450Mb WIFI með tveimur loftnetum3G: innbyggt, þarf SIM kort frá símafyrirtæki. Hljóð: Innbyggt hljóðkort og 2 hátalarar. Drif: DVD-RW Multiburner drif - útskiptanlegt með 3 sellu rafhlöðu. Rafhlaða: LiIon high capacity rafhlaða (6sellu) m. allt að 5,00 klst hleðslu og möguleiki á 3 sellu rafhlöðu í stað DVD drifs sem gefur samtals 8 klst. Tengi: 3x USB 2.0, VGA, DisplayPort (tengist DVI með millisnúru), hljóð inn/út. Kortaraufar: PCI Express. Öryggi: Innbyggður öryggisörgjörvi og fingrafaralesari. Lyklaborð: Eitt besta fartölvulyklaborðið á markaðnum, Windows hnappur. Lyklaborðsljós: lýsir upp lyklaborðið. Mús: UltraNav mýs; Trackpoint IV 4 hnappa mús, Snertimús - forritanleg. Ábyrgð: 3 ára alþjóðleg á vinnu og varahlutum, árs ábyrgð á rafhlöðu. Stýrikerfi: Windows XP PRO uppsett, Vista Business 32 DVD fylgir. Byggingarefni: Koltrefja blanda og magnesium. Stærð: 318x231x18,6-25,9mm, þyngd aðeins 1,42kg. Vélin notar USB tengda tengikví sem er með nettengi, USB, VGA (mest 1440x900) ofl. # Hugbúnaður: # ThinkVantage hugbúnaður: # Rescue and Recovery afritun og enduruppsetning tölvunnar # Access connection - stýrir netaðgangi og uppsetningu # Power manager - orkusparnaður stilltur á einfaldan hátt # Presentation manager - mjög þægilegur hugbúnaður til þess að tengjast skjám ofl. # System update - sjáfvirk uppfærsla rekla af netinu</cbc:Description>
-			<cbc:Name>Ferðatölva</cbc:Name>
+			<cbc:Description>Örgjörvi ... </cbc:Description> <!-- BT-154 -->
+			<cbc:Name>Ferðatölva</cbc:Name> <!-- BT-153 -->
 			<cac:BuyersItemIdentification>
-				<cbc:ID>Q123</cbc:ID>
+				<cbc:ID>Q123</cbc:ID> <!-- BT-156 -->
 			</cac:BuyersItemIdentification>
 			<cac:SellersItemIdentification>
-				<cbc:ID>JB007</cbc:ID>
+				<cbc:ID>JB007</cbc:ID> <!-- BT-155 -->
 			</cac:SellersItemIdentification>
 			<cac:StandardItemIdentification>
-				<cbc:ID schemeID="GTIN" schemeAgencyID="9">1234567890121</cbc:ID>
+				<cbc:ID schemeID="0160">1234567890121</cbc:ID> <!-- BT-157, BT-157-1 -->
 			</cac:StandardItemIdentification>
 			<cac:OriginCountry>
-				<cbc:IdentificationCode>CH</cbc:IdentificationCode>
+				<cbc:IdentificationCode>CH</cbc:IdentificationCode> <!-- BT-159x -->
 			</cac:OriginCountry>
 			<cac:CommodityClassification>
-				<cbc:ItemClassificationCode listAgencyID="113" listID="UNSPSC">43211503</cbc:ItemClassificationCode>
+				<cbc:ItemClassificationCode listID="MP">43211503</cbc:ItemClassificationCode> <!-- BT-158, BT-158-1 -->
 			</cac:CommodityClassification>
 			<cac:ClassifiedTaxCategory>
-				<cbc:ID schemeID="UN/ECE 5305" schemeAgencyID="6">S</cbc:ID>
-				<cbc:Percent>25.5</cbc:Percent>
+				<cbc:ID schemeID="UN/ECE 5305" schemeAgencyID="6">S</cbc:ID> <!-- BT-151 -->
+				<cbc:Percent>25.5</cbc:Percent> <!-- BT-152 -->
 				<cac:TaxScheme>
-					<cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">VAT</cbc:ID>
+					<cbc:ID>VAT</cbc:ID>
 				</cac:TaxScheme>
 			</cac:ClassifiedTaxCategory>
 			<cac:AdditionalItemProperty>
-				<cbc:Name>Litur</cbc:Name>
-				<cbc:Value>Svört</cbc:Value>
-			</cac:AdditionalItemProperty>
-			<cac:AdditionalItemProperty>
-				<cbc:Name>Diskur</cbc:Name>
-				<cbc:Value>128gb</cbc:Value>
-			</cac:AdditionalItemProperty>
-			<cac:AdditionalItemProperty>
-				<cbc:Name>Skjár</cbc:Name>
-				<cbc:Value>13,3 tommur</cbc:Value>
-			</cac:AdditionalItemProperty>
-			<cac:AdditionalItemProperty>
-				<cbc:Name>RAM</cbc:Name>
-				<cbc:Value>4gb</cbc:Value>
+				<cbc:Name>Litur</cbc:Name> <!-- BT-160 -->
+				<cbc:Value>Svört</cbc:Value> <!-- BT-161 -->
 			</cac:AdditionalItemProperty>
 		</cac:Item>
 		<cac:Price>
-			<cbc:PriceAmount currencyID="ISK">361847.39</cbc:PriceAmount>
+			<cbc:PriceAmount currencyID="ISK">361847.39</cbc:PriceAmount> <!-- BT-146 -->
+			<cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
 			<cac:AllowanceCharge>
-				<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-				<cbc:AllowanceChargeReason>Samningur</cbc:AllowanceChargeReason>
-				<cbc:MultiplierFactorNumeric>0.15</cbc:MultiplierFactorNumeric>
-				<cbc:Amount currencyID="ISK">63855.42</cbc:Amount>
-				<cbc:BaseAmount currencyID="ISK">425702.81</cbc:BaseAmount>
+				<cbc:ChargeIndicator>false</cbc:ChargeIndicator> <!-- qualifier -->
+				<cbc:Amount currencyID="ISK">63855.42</cbc:Amount> <!-- BT-147 -->
+				<cbc:BaseAmount currencyID="ISK">425702.81</cbc:BaseAmount> <!-- BT-148 -->
 			</cac:AllowanceCharge>
-		</cac:Price>
-	</cac:InvoiceLine>
-	<cac:InvoiceLine>
-		<cbc:ID>2</cbc:ID>
-		<cbc:Note>Gallað eintak</cbc:Note>
-		<cbc:InvoicedQuantity unitCode="C62">-1</cbc:InvoicedQuantity>
-		<cbc:LineExtensionAmount currencyID="ISK">-2990.65</cbc:LineExtensionAmount>
-		<cbc:AccountingCost>Verkliður 998</cbc:AccountingCost>
-		<cac:OrderLineReference>
-			<cbc:LineID>2</cbc:LineID>
-		</cac:OrderLineReference>
-		<cac:Item>
-			<cbc:Name>"Advanced computing" bók</cbc:Name>
-			<cac:SellersItemIdentification>
-				<cbc:ID>JB008</cbc:ID>
-			</cac:SellersItemIdentification>
-			<cac:StandardItemIdentification>
-				<cbc:ID schemeID="GTIN" schemeAgencyID="9">1234567890122</cbc:ID>
-			</cac:StandardItemIdentification>
-			<cac:CommodityClassification>
-				<cbc:ItemClassificationCode listID="UNSPSC" listAgencyID="113">55101520</cbc:ItemClassificationCode>
-			</cac:CommodityClassification>
-			<cac:ClassifiedTaxCategory>
-				<cbc:ID schemeID="UN/ECE 5305" schemeAgencyID="6">AA</cbc:ID>
-				<cac:TaxScheme>
-					<cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">VAT</cbc:ID>
-				</cac:TaxScheme>
-			</cac:ClassifiedTaxCategory>
-		</cac:Item>
-		<cac:Price>
-			<cbc:PriceAmount currencyID="ISK">2990.65</cbc:PriceAmount>
-		</cac:Price>
-	</cac:InvoiceLine>
-	<cac:InvoiceLine>
-		<cbc:ID>3</cbc:ID>
-		<cbc:InvoicedQuantity unitCode="C62">2</cbc:InvoicedQuantity>
-		<cbc:LineExtensionAmount currencyID="ISK">4205.60</cbc:LineExtensionAmount>
-		<cbc:AccountingCost>Verkliður 998</cbc:AccountingCost>
-		<cac:OrderLineReference>
-			<cbc:LineID>3</cbc:LineID>
-		</cac:OrderLineReference>
-		<cac:Item>
-			<cbc:Name>"Computing for dummies" bók</cbc:Name>
-			<cac:SellersItemIdentification>
-				<cbc:ID>JB009</cbc:ID>
-			</cac:SellersItemIdentification>
-			<cac:StandardItemIdentification>
-				<cbc:ID schemeID="GTIN" schemeAgencyID="9">1234567890123</cbc:ID>
-			</cac:StandardItemIdentification>
-			<cac:CommodityClassification>
-				<cbc:ItemClassificationCode listID="UNSPSC" listAgencyID="113">55101520</cbc:ItemClassificationCode>
-			</cac:CommodityClassification>
-			<cac:ClassifiedTaxCategory>
-				<cbc:ID schemeID="UN/ECE 5305" schemeAgencyID="6">AA</cbc:ID>
-				<cac:TaxScheme>
-					<cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">VAT</cbc:ID>
-				</cac:TaxScheme>
-			</cac:ClassifiedTaxCategory>
-		</cac:Item>
-		<cac:Price>
-			<cbc:PriceAmount currencyID="ISK">2102.80</cbc:PriceAmount>
-			<cac:AllowanceCharge>
-				<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-				<cbc:AllowanceChargeReason>Sýningarafsláttur</cbc:AllowanceChargeReason>
-				<cbc:MultiplierFactorNumeric>0.10</cbc:MultiplierFactorNumeric>
-				<cbc:Amount currencyID="ISK">233.65</cbc:Amount>
-				<cbc:BaseAmount currencyID="ISK">2336.45</cbc:BaseAmount>
-			</cac:AllowanceCharge>
-		</cac:Price>
-	</cac:InvoiceLine>
-	<cac:InvoiceLine>
-		<cbc:ID>4</cbc:ID>
-		<cbc:InvoicedQuantity unitCode="C62">-1</cbc:InvoicedQuantity>
-		<cbc:LineExtensionAmount currencyID="ISK">-50000.00</cbc:LineExtensionAmount>
-		<cbc:AccountingCost>Verkliður 654</cbc:AccountingCost>
-		<cac:OrderLineReference>
-			<cbc:LineID>4</cbc:LineID>
-		</cac:OrderLineReference>
-		<cac:Item>
-			<cbc:Name>Innlögð IBM 5150 borðtölva</cbc:Name>
-			<cac:SellersItemIdentification>
-				<cbc:ID>JB010</cbc:ID>
-			</cac:SellersItemIdentification>
-			<cac:StandardItemIdentification>
-				<cbc:ID schemeID="GTIN" schemeAgencyID="9">1234567890124</cbc:ID>
-			</cac:StandardItemIdentification>
-			<cac:CommodityClassification>
-				<cbc:ItemClassificationCode listID="UNSPSC" listAgencyID="113">43211503</cbc:ItemClassificationCode>
-			</cac:CommodityClassification>
-			<cac:ClassifiedTaxCategory>
-				<cbc:ID schemeID="UN/ECE 5305" schemeAgencyID="6">E</cbc:ID>
-				<cac:TaxScheme>
-					<cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">VAT</cbc:ID>
-				</cac:TaxScheme>
-			</cac:ClassifiedTaxCategory>
-		</cac:Item>
-		<cac:Price>
-			<cbc:PriceAmount currencyID="ISK">50000.00</cbc:PriceAmount>
-		</cac:Price>
-	</cac:InvoiceLine>
-	<cac:InvoiceLine>
-		<cbc:ID>5</cbc:ID>
-		<cbc:Note>Eins og lofað var þá má skila kaplinum innan tveggja vikna frá kaupdegi.</cbc:Note>
-		<cbc:InvoicedQuantity unitCode="MTR">250</cbc:InvoicedQuantity>
-		<cbc:LineExtensionAmount currencyID="ISK">15080.00</cbc:LineExtensionAmount>
-		<cbc:AccountingCost>Verkliður 654</cbc:AccountingCost>
-		<cac:OrderLineReference>
-			<cbc:LineID>5</cbc:LineID>
-		</cac:OrderLineReference>
-		<cac:Item>
-			<cbc:Name>Netkapall</cbc:Name>
-			<cac:SellersItemIdentification>
-				<cbc:ID>JB011</cbc:ID>
-			</cac:SellersItemIdentification>
-			<cac:StandardItemIdentification>
-				<cbc:ID schemeID="GTIN" schemeAgencyID="9">1234567890125</cbc:ID>
-			</cac:StandardItemIdentification>
-			<cac:CommodityClassification>
-				<cbc:ItemClassificationCode listID="UNSPSC" listAgencyID="113">26121609</cbc:ItemClassificationCode>
-			</cac:CommodityClassification>
-			<cac:ClassifiedTaxCategory>
-				<cbc:ID schemeID="UN/ECE 5305" schemeAgencyID="6">S</cbc:ID>
-				<cac:TaxScheme>
-					<cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">VAT</cbc:ID>
-				</cac:TaxScheme>
-			</cac:ClassifiedTaxCategory>
-		</cac:Item>
-		<cac:Price>
-			<cbc:PriceAmount currencyID="ISK">60.32</cbc:PriceAmount>
-			<cbc:BaseQuantity unitCode="MTR">1</cbc:BaseQuantity>
 		</cac:Price>
 	</cac:InvoiceLine>
 </Invoice>
