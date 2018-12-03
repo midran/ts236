@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2" xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-<!-- 
-Title: Large EN 16931 invoice example using UBL 2.1
-Description: This example of an EN 16931 invoice is a large and valid example in UBL 2.1. As such makes use of all sections of the invoice but it does not include all possible business terms since business rules make some business terms mutually exclusive.
-Created by: Georg Birgisson, Midran Ltd.
-Date: 2018-11-31
-Compliance: Valid
--->
-
 	<cbc:UBLVersionID>2.1</cbc:UBLVersionID>
 	<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID> <!-- BT-24 -->
 	<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID> <!-- BT-225 -->
@@ -22,8 +14,8 @@ Compliance: Valid
 	<cbc:AccountingCost>102035</cbc:AccountingCost> <!-- BT-19 -->
 	<cbc:BuyerReference>123</cbc:BuyerReference> <!-- BT-10 -->
 	<cac:InvoicePeriod> <!-- BG-14 -->
-		<cbc:StartDate>2010-06-01</cbc:StartDate> <!-- BT-73 -->
-		<cbc:EndDate>2010-06-31</cbc:EndDate> <!-- BT-74 -->
+		<cbc:StartDate>2018-06-01</cbc:StartDate> <!-- BT-73 -->
+		<cbc:EndDate>2018-06-30</cbc:EndDate> <!-- BT-74 -->
 	</cac:InvoicePeriod>
 	<cac:OrderReference>
 		<cbc:ID>123</cbc:ID> <!-- BT-13 -->
@@ -35,21 +27,18 @@ Compliance: Valid
 			<cbc:IssueDate>2018-06-01</cbc:IssueDate>  <!-- BT-26 -->
 		</cac:InvoiceDocumentReference>
 	</cac:BillingReference>
-	<cac:ContractDocumentReference>
-		<cbc:ID>Samningur321</cbc:ID> <!-- BT-12 -->
-	</cac:ContractDocumentReference>
-	<cac:ProjectReference>
-		<cbc:ID>321</cbc:ID> <!-- BT-11 -->
-	</cac:ProjectReference>
-	<cac:OriginatorDocumentReference>
-		<cbc:ID>753</cbc:ID>  <!-- BT-17 -->
-	</cac:OriginatorDocumentReference>
-	<cac:ReceiptDocumentReference>
-		<cbc:ID>654</cbc:ID>  <!-- BT-15 -->
-	</cac:ReceiptDocumentReference>
 	<cac:DespatchDocumentReference>
 		<cbc:ID>987</cbc:ID>  <!-- BT-16 -->
 	</cac:DespatchDocumentReference>
+	<cac:ReceiptDocumentReference>
+		<cbc:ID>654</cbc:ID>  <!-- BT-15 -->
+	</cac:ReceiptDocumentReference>
+	<cac:OriginatorDocumentReference>
+		<cbc:ID>753</cbc:ID>  <!-- BT-17 -->
+	</cac:OriginatorDocumentReference>
+	<cac:ContractDocumentReference>
+		<cbc:ID>Samningur321</cbc:ID> <!-- BT-12 -->
+	</cac:ContractDocumentReference>
 	<cac:AdditionalDocumentReference>
 		<cbc:ID>doc2</cbc:ID>  <!-- BT-122 -->
 		<cbc:DocumentDescription>Notkunaryfirlit</cbc:DocumentDescription>  <!-- BT-123 -->
@@ -60,13 +49,16 @@ Compliance: Valid
 		</cac:Attachment>
 	</cac:AdditionalDocumentReference>
 	<cac:AdditionalDocumentReference>
-		<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
-		<cbc:ID schemeID="ABZ">951</cbc:ID>
+		<cbc:ID schemeID="ABZ">951</cbc:ID>  <!-- BT-18 -->
+		<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>  <!-- BT-18 qualifier -->
 	</cac:AdditionalDocumentReference>
 	<cac:AdditionalDocumentReference>
-		<cbc:DocumentTypeCode>71</cbc:DocumentTypeCode>   <!-- 71 = Eindagi -->
 		<cbc:ID>2018-08-31</cbc:ID>  <!-- BT-122 -->
+		<cbc:DocumentTypeCode>71</cbc:DocumentTypeCode>   <!-- 71 = Eindagi -->
 	</cac:AdditionalDocumentReference>
+	<cac:ProjectReference>
+		<cbc:ID>321</cbc:ID> <!-- BT-11 -->
+	</cac:ProjectReference>
 	<cac:AccountingSupplierParty>
 		<cac:Party>
 			<cbc:EndpointID schemeID="0196" schemeAgencyID="9">5203092330</cbc:EndpointID> <!-- BT-34, BT-34-1 -->
@@ -84,10 +76,10 @@ Compliance: Valid
 				<cbc:AdditionalStreetName>Bakhús á lóð</cbc:AdditionalStreetName> <!-- BT-36 -->
 				<cbc:CityName>Akureyri</cbc:CityName> <!-- BT-37 -->
 				<cbc:PostalZone>600</cbc:PostalZone> <!-- BT-38 -->
-				<cbc:CountrySubentityCode>Norðurland</cbc:CountrySubentityCode> <!-- BT-39 -->
-				<cbc:AddressLine>
+				<cbc:CountrySubentity>Norðurland</cbc:CountrySubentity> <!-- BT-39 -->
+				<cac:AddressLine>
 					<cbc:Line>Söludeild</cbc:Line> <!-- BT-162 -->
-				</cbc:AddressLine>
+				</cac:AddressLine>
 				<cac:Country>
 					<cbc:IdentificationCode>IS</cbc:IdentificationCode> <!-- BT-40 -->
 				</cac:Country>
@@ -106,11 +98,11 @@ Compliance: Valid
 			</cac:PartyTaxScheme>
 			<cac:PartyLegalEntity>
 				<cbc:RegistrationName>Yfirsölufyrirtækið ehf</cbc:RegistrationName> <!-- BT-27 -->
-				<cbc:CompanyID schemeID="0196">5203092330</cbc:CompanyID> <!-- BT-30, BT-30-1 -->
+				<cbc:CompanyID>5203092330</cbc:CompanyID> <!-- BT-30, BT-30-1 -->
 				<cbc:CompanyLegalForm>Hlutafélag</cbc:CompanyLegalForm> <!-- BT-33 -->
 			</cac:PartyLegalEntity>
 			<cac:Contact>
-				<cbc:Telephone>Jón M. Jónsson</cbc:Telephone>  <!-- BT-41 -->
+				<cbc:Name>Jón M. Jónsson</cbc:Name>  <!-- BT-41 -->
 				<cbc:Telephone>4621230</cbc:Telephone> <!-- BT-42 -->
 				<cbc:ElectronicMail>jon@solufyrirtaekid.is</cbc:ElectronicMail> <!-- BT-43 -->
 			</cac:Contact>
@@ -131,9 +123,9 @@ Compliance: Valid
 				<cbc:CityName>Reykjavík</cbc:CityName> <!-- BT-52 -->
 				<cbc:PostalZone>101</cbc:PostalZone> <!-- BT-53 -->
 				<cbc:CountrySubentity>Suðvesturland</cbc:CountrySubentity> <!-- BT-54 -->
-				<cbc:AddressLine>
+				<cac:AddressLine>
 					<cbc:Line>Bókhaldsdeild</cbc:Line> <!-- BT-163 -->
-				</cbc:AddressLine>				
+				</cac:AddressLine>				
 				<cac:Country>
 					<cbc:IdentificationCode>IS</cbc:IdentificationCode> <!-- BT-55 -->
 				</cac:Country>
@@ -146,10 +138,10 @@ Compliance: Valid
 			</cac:PartyTaxScheme>
 			<cac:PartyLegalEntity>
 				<cbc:RegistrationName>Yfirkaupafyrirtækið ehf.</cbc:RegistrationName> <!-- BT-45 -->
-				<cbc:CompanyID schemeID="0196">5402697509</cbc:CompanyID> <!-- BT-47, BT-47-1 -->
+				<cbc:CompanyID>5402697509</cbc:CompanyID> <!-- BT-47, BT-47-1 -->
 			</cac:PartyLegalEntity>
 			<cac:Contact>
-				<cbc:FirstName>Pétur Pálsson</cbc:FirstName> <!-- BT-56 -->
+				<cbc:Name>Pétur Pálsson</cbc:Name> <!-- BT-56 -->
 				<cbc:Telephone>5121230</cbc:Telephone> <!-- BT-57 -->
 				<cbc:ElectronicMail>petur@kaupfyrirtaekid.is</cbc:ElectronicMail> <!-- BT-58 -->
 			</cac:Contact>
@@ -163,7 +155,7 @@ Compliance: Valid
 			<cbc:Name>Faktor ehf.</cbc:Name> <!-- BT-59 -->
 		</cac:PartyName>
 		<cac:PartyLegalEntity>
-			<cbc:CompanyID schemeID="0196">5507983699</cbc:CompanyID> <!-- BT-61, BT-61-1 -->
+			<cbc:CompanyID>5507983699</cbc:CompanyID> <!-- BT-61, BT-61-1 -->
 		</cac:PartyLegalEntity>
 	</cac:PayeeParty>
 	<cac:TaxRepresentativeParty>	
@@ -176,9 +168,9 @@ Compliance: Valid
 			<cbc:CityName>Hafnarfirði</cbc:CityName> <!-- BT-66 -->
 			<cbc:PostalZone>220</cbc:PostalZone> <!-- BT-67 -->
 			<cbc:CountrySubentity>Suðvesturland</cbc:CountrySubentity> <!-- BT-68 -->
-			<cbc:AddressLine>
+			<cac:AddressLine>
 				<cbc:Line>Skattþjónustudeild</cbc:Line> <!-- BT-164 -->
-			</cbc:AddressLine>				
+			</cac:AddressLine>				
 			<cac:Country>
 				<cbc:IdentificationCode>IS</cbc:IdentificationCode> <!-- BT-69 -->
 			</cac:Country>
@@ -191,12 +183,7 @@ Compliance: Valid
 		</cac:PartyTaxScheme>
 	</cac:TaxRepresentativeParty>	
 	<cac:Delivery>
-		<cac:DeliveryParty>
-			<cac:PartyName>
-				<cbc:Name>Akstursþjónustan ehf.</cbc:Name> <!-- BT-70 -->
-			</cac:PartyName>
-		</cac:DeliveryParty>
-		<cbc:ActualDeliveryDate>2010-08-31</cbc:ActualDeliveryDate> <!-- BT-72 -->
+		<cbc:ActualDeliveryDate>2010-08-31</cbc:ActualDeliveryDate> <!-- BT-72 -->		
 		<cac:DeliveryLocation>
 			<cbc:ID schemeID="0035">6754238987648</cbc:ID> <!-- BT-71, BT-71-1 -->
 			<cac:Address>
@@ -205,14 +192,19 @@ Compliance: Valid
 				<cbc:CityName>Egilsstaðir</cbc:CityName> <!-- BT-77 -->
 				<cbc:PostalZone>700</cbc:PostalZone> <!-- BT-78 -->
 				<cbc:CountrySubentity>Fjarðabyggð</cbc:CountrySubentity> <!-- BT-79 -->
-				<cbc:AddressLine>
+				<cac:AddressLine>
 					<cbc:Line>Skattþjónustudeild</cbc:Line> <!-- BT-165 -->
-				</cbc:AddressLine>				
+				</cac:AddressLine>				
 				<cac:Country>
 					<cbc:IdentificationCode>IS</cbc:IdentificationCode> <!-- BT-80 -->
 				</cac:Country>
 			</cac:Address>
 		</cac:DeliveryLocation>
+		<cac:DeliveryParty>
+			<cac:PartyName>
+				<cbc:Name>Akstursþjónustan ehf.</cbc:Name> <!-- BT-70 -->
+			</cac:PartyName>
+		</cac:DeliveryParty>
 	</cac:Delivery>
 	<cac:PaymentMeans>
 		<cbc:PaymentMeansCode name="Millifærsla">42</cbc:PaymentMeansCode> <!-- BT-82, BT-81 -->
@@ -226,11 +218,9 @@ Compliance: Valid
 	</cac:PaymentTerms>
 	<cac:AllowanceCharge>
 		<cbc:ChargeIndicator>true</cbc:ChargeIndicator> <!-- UBL qualifier -->
-		<cbc:AllowanceChargeReason>Flutningskostnaður</cbc:AllowanceChargeReason> <!-- BT-97, BT-104 -->
-		<cbc:AllowanceChargeReasonCode>123</cbc:AllowanceChargeReasonCode> <!-- BT-98, BT-105 -->
-		<cbc:Amount currencyID="ISK">37000.00</cbc:Amount> <!-- BT-92, BT-99 -->
-		<cbc:MultiplierFactorNumeric>80</cbc:MultiplierFactorNumeric> <!-- BT-94, BT-101 -->
-		<cbc:BaseAmount>46250</cbc:BaseAmount> <!-- BT-93, BT-100 -->
+		<cbc:AllowanceChargeReasonCode>DL</cbc:AllowanceChargeReasonCode> <!-- BT-98, BT-105 -->	<cbc:AllowanceChargeReason>Flutningskostnaður</cbc:AllowanceChargeReason> <!-- BT-97, BT-104 -->
+		<cbc:MultiplierFactorNumeric>80</cbc:MultiplierFactorNumeric> <!-- BT-94, BT-101 -->		<cbc:Amount currencyID="ISK">37000.00</cbc:Amount> <!-- BT-92, BT-99 -->
+		<cbc:BaseAmount currencyID="ISK">46250</cbc:BaseAmount> <!-- BT-93, BT-100 -->
 		<cac:TaxCategory>
 			<cbc:ID>S</cbc:ID> <!-- BT-95, BT-102 -->
 				<cbc:Percent>10</cbc:Percent> <!-- BT-96, BT-103  -->
@@ -240,7 +230,7 @@ Compliance: Valid
 		</cac:TaxCategory>
 	</cac:AllowanceCharge>
 	<cac:TaxTotal>
-		<cbc:TaxAmount currencyID="EUR">89343.37</cbc:TaxAmount> <!-- BT-110 -->
+		<cbc:TaxAmount currencyID="ISK">89343.37</cbc:TaxAmount> <!-- BT-110 -->
 		<cac:TaxSubtotal>
 			<cbc:TaxableAmount currencyID="ISK">356847.39</cbc:TaxableAmount> <!-- BT-116 -->
 			<cbc:TaxAmount currencyID="ISK">85643.37</cbc:TaxAmount> <!-- BT-117 -->
@@ -264,20 +254,6 @@ Compliance: Valid
 			</cac:TaxCategory>
 		</cac:TaxSubtotal>		
 	</cac:TaxTotal>
-	<cac:TaxTotal>
-		<cbc:TaxAmount currencyID="EUR">86843.37</cbc:TaxAmount>
-		<cac:TaxSubtotal>
-			<cbc:TaxableAmount currencyID="ISK">361747,39</cbc:TaxableAmount>
-			<cbc:TaxAmount currencyID="ISK">86843.37</cbc:TaxAmount>
-			<cac:TaxCategory>
-				<cbc:ID>S</cbc:ID>
-				<cbc:Percent>24</cbc:Percent>
-				<cac:TaxScheme>
-					<cbc:ID>VAT</cbc:ID>
-				</cac:TaxScheme>
-			</cac:TaxCategory>
-		</cac:TaxSubtotal>
-	</cac:TaxTotal>
 	<cac:LegalMonetaryTotal>
 		<cbc:LineExtensionAmount currencyID="ISK">356847.39</cbc:LineExtensionAmount> <!-- BT-106 -->
 		<cbc:TaxExclusiveAmount currencyID="ISK">393847.39</cbc:TaxExclusiveAmount> <!-- BT-109 -->
@@ -295,22 +271,21 @@ Compliance: Valid
 		<cbc:LineExtensionAmount currencyID="ISK">356847.39</cbc:LineExtensionAmount> <!-- BT-131 -->
 		<cbc:AccountingCost>Verkliður 654</cbc:AccountingCost> <!-- BT-133 -->
 		<cac:InvoicePeriod>
-			<cbc:StartDate>2010-06-01</cbc:StartDate> <!-- BT-134 -->
-			<cbc:EndDate>2010-06-31</cbc:EndDate> <!-- BT-135 -->
+			<cbc:StartDate>2018-06-01</cbc:StartDate> <!-- BT-134 -->
+			<cbc:EndDate>2018-06-30</cbc:EndDate> <!-- BT-135 -->
 		</cac:InvoicePeriod>
 		<cac:OrderLineReference>
 			<cbc:LineID>1</cbc:LineID> <!-- BT-132 -->
 		</cac:OrderLineReference>
 		<cac:DocumentReference>
-			<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode> <!-- BT-128, qualifier -->
-			<cbc:ID schemeID="ABZ">AB-123</cbc:ID> <!-- BT-128, BT-128-1 -->
+			<cbc:ID schemeID="ABZ">AB-123</cbc:ID> <!-- BT-128, BT-128-1 -->			<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode> <!-- BT-128, qualifier -->
 		</cac:DocumentReference>
 		<cac:AllowanceCharge>
 			<cbc:ChargeIndicator>false</cbc:ChargeIndicator> <!-- qualifier -->
+			<cbc:AllowanceChargeReasonCode>100</cbc:AllowanceChargeReasonCode> <!-- BT-140, BT-145 -->
 			<cbc:AllowanceChargeReason>Rispa</cbc:AllowanceChargeReason> <!-- BT-139, BT-144 -->
-			<cbc:AllowanceChargeReasonCode>Rispa</cbc:AllowanceChargeReasonCode> <!-- BT-140, BT-145 -->
-			<cbc:Amount currencyID="ISK">5000.00</cbc:Amount> <!-- BT-136, BT-141 -->
 			<cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric> <!-- BT-138, BT-141 -->
+			<cbc:Amount currencyID="ISK">5000.00</cbc:Amount> <!-- BT-136, BT-141 -->
 			<cbc:BaseAmount currencyID="ISK">50000.00</cbc:BaseAmount> <!-- BT-137, BT-142 -->
 		</cac:AllowanceCharge>
 		<cac:Item>
@@ -333,7 +308,7 @@ Compliance: Valid
 			</cac:CommodityClassification>
 			<cac:ClassifiedTaxCategory>
 				<cbc:ID schemeID="UN/ECE 5305" schemeAgencyID="6">S</cbc:ID> <!-- BT-151 -->
-				<cbc:Percent>25.5</cbc:Percent> <!-- BT-152 -->
+				<cbc:Percent>24</cbc:Percent> <!-- BT-152 -->
 				<cac:TaxScheme>
 					<cbc:ID>VAT</cbc:ID>
 				</cac:TaxScheme>
