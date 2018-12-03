@@ -218,8 +218,10 @@
 	</cac:PaymentTerms>
 	<cac:AllowanceCharge>
 		<cbc:ChargeIndicator>true</cbc:ChargeIndicator> <!-- UBL qualifier -->
-		<cbc:AllowanceChargeReasonCode>DL</cbc:AllowanceChargeReasonCode> <!-- BT-98, BT-105 -->	<cbc:AllowanceChargeReason>Flutningskostnaður</cbc:AllowanceChargeReason> <!-- BT-97, BT-104 -->
-		<cbc:MultiplierFactorNumeric>80</cbc:MultiplierFactorNumeric> <!-- BT-94, BT-101 -->		<cbc:Amount currencyID="ISK">37000.00</cbc:Amount> <!-- BT-92, BT-99 -->
+		<cbc:AllowanceChargeReasonCode>DL</cbc:AllowanceChargeReasonCode> <!-- BT-98, BT-105 -->
+		<cbc:AllowanceChargeReason>Flutningskostnaður</cbc:AllowanceChargeReason> <!-- BT-97, BT-104 -->
+		<cbc:MultiplierFactorNumeric>80</cbc:MultiplierFactorNumeric> <!-- BT-94, BT-101 -->
+		<cbc:Amount currencyID="ISK">37000.00</cbc:Amount> <!-- BT-92, BT-99 -->
 		<cbc:BaseAmount currencyID="ISK">46250</cbc:BaseAmount> <!-- BT-93, BT-100 -->
 		<cac:TaxCategory>
 			<cbc:ID>S</cbc:ID> <!-- BT-95, BT-102 -->
@@ -278,7 +280,8 @@
 			<cbc:LineID>1</cbc:LineID> <!-- BT-132 -->
 		</cac:OrderLineReference>
 		<cac:DocumentReference>
-			<cbc:ID schemeID="ABZ">AB-123</cbc:ID> <!-- BT-128, BT-128-1 -->			<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode> <!-- BT-128, qualifier -->
+			<cbc:ID schemeID="ABZ">AB-123</cbc:ID> <!-- BT-128, BT-128-1 -->
+			<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode> <!-- BT-128, qualifier -->
 		</cac:DocumentReference>
 		<cac:AllowanceCharge>
 			<cbc:ChargeIndicator>false</cbc:ChargeIndicator> <!-- qualifier -->
