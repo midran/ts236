@@ -61,7 +61,7 @@
 	</cac:ProjectReference>
 	<cac:AccountingSupplierParty>
 		<cac:Party>
-			<cbc:EndpointID schemeID="0196" schemeAgencyID="9">5203092330</cbc:EndpointID> <!-- BT-34, BT-34-1 -->
+			<cbc:EndpointID schemeID="0196">5203092330</cbc:EndpointID> <!-- BT-34, BT-34-1 -->
 			<cac:PartyIdentification>
 				<cbc:ID schemeID="0035">Sel123</cbc:ID> <!-- BT-29, BT-29-1 -->
 			</cac:PartyIdentification>
@@ -183,7 +183,7 @@
 		</cac:PartyTaxScheme>
 	</cac:TaxRepresentativeParty>	
 	<cac:Delivery>
-		<cbc:ActualDeliveryDate>2010-08-31</cbc:ActualDeliveryDate> <!-- BT-72 -->		
+		<cbc:ActualDeliveryDate>2018-08-31</cbc:ActualDeliveryDate> <!-- BT-72 -->		
 		<cac:DeliveryLocation>
 			<cbc:ID schemeID="0035">6754238987648</cbc:ID> <!-- BT-71, BT-71-1 -->
 			<cac:Address>
@@ -323,7 +323,7 @@
 		</cac:Item>
 		<cac:Price>
 			<cbc:PriceAmount currencyID="ISK">361847.39</cbc:PriceAmount> <!-- BT-146 -->
-			<cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
+			<cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity> 
 			<cac:AllowanceCharge>
 				<cbc:ChargeIndicator>false</cbc:ChargeIndicator> <!-- qualifier -->
 				<cbc:Amount currencyID="ISK">63855.42</cbc:Amount> <!-- BT-147 -->
